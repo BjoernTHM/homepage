@@ -9,10 +9,10 @@ app.use(express.logger());
 app.use(express.static(__dirname + '/public'));
 
 // use all needed folders
-app.use(express.static(__dirname + '/bootstrap-3.2.0-dist');
-app.use(express.static(__dirname + '/css');
-app.use(express.static(__dirname + '/img');
-app.use(express.static(__dirname + '/javascript');
+app.use(express.static(__dirname + '/bootstrap-3.2.0-dist'));
+app.use(express.static(__dirname + '/css'));
+app.use(express.static(__dirname + '/img'));
+app.use(express.static(__dirname + '/javascript'));
 
 var domain = process.env.DOMAIN || '';
 var port = process.env.PORT || 5000;
