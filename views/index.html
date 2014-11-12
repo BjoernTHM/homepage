@@ -46,6 +46,11 @@
 				<a class="navbar-brand" href="#impressum">&nbsp;&nbsp;
 					Impressum</a>
 			</div>
+			<form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input id="searchbar" type="text" class="form-control" placeholder="Search">
+        </div>
+      </form>
 			<div class="navbar-collapse collapse">
 				<!-- Place holder for email, password
           <form class="navbar-form navbar-right" role="form">
@@ -62,7 +67,7 @@
 			<!--/.navbar-collapse -->
 		</div>
 	</div>
-
+<div class="search-content">
 	<!-- Main jumbotron for a primary marketing message or call to action -->
 	<div class="jumbotron">
 		<div class="container">
@@ -216,6 +221,7 @@
 			<p>N. Justus Oct 2014</p>
 		</footer>
 	</div>
+	</div>
 	<!-- /container -->
 
 
@@ -227,6 +233,35 @@
 	<script src="../../dist/js/bootstrap.min.js"></script>
 	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+	<script>
+		var timeout;
+		var items = $(".search-content").find('p').add('.search-content h1').add('.search-content h2').add('.search-content h3').add('.search-content h4').add('.search-content h5').add('.search-content h6').add('.search-content span').add('.search-content a').add('.search-content tr').add('.search-content section');
+		$('#searchbar').keyup(function() {
+			var value = $(this).val();
+			clearTimeout(timeout);
+			timeout = setTimeout(function() {
+				for (var i = 0; i < items.length; i++) {
+					if (value.length > 0) {
+						if (items.eq(i).text().toLowerCase().indexOf(value.toLowerCase()) > -1) {
+							items.eq(i).css({
+								"color" : "red"
+							});
+						}
+						else {
+							items.eq(i).css({
+								"color" : ""
+							});
+						}
+					}
+					else {
+						items.eq(i).css({
+							"color" : ""
+						});
+					}
+				}
+			}, 300);
+		});
+	</script>
 </body>
 </html>
 
